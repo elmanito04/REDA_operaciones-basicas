@@ -3,46 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Operaciones Básicas</title>
+    <link rel="stylesheet" href="uno">
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3ed9a;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Estilos para la barra de navegación */
+        nav {
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        nav a {
+            color: rgb(247, 246, 199);
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease; /* Transición suave al cambiar el color del texto */
+        }
+        
+        nav a:hover {
+            color: #ff7f50; /* Cambia el color al pasar el mouse sobre los enlaces */
+        }
+        
+        /* Estilos para el encabezado */
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-top: 20px;
+        }
+        
+        /* Estilos para los contenedores de operaciones */
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgb(236, 234, 110);
+            border: 2px solid #000000;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden; /* Evita que las imágenes se desborden en pantallas pequeñas */
+        }
+        
+        /* Estilos para las operaciones */
+        .operation {
+            width: calc(50% - 20px);
+            background-color: #f0ee82;
+            border: 2px solid #e4e39e;
+            border-radius: 10px;
+            padding: 40px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden; /* Evita que las imágenes se desborden en pantallas pequeñas */
+        }
+        
+        /* Estilos para las imágenes */
+        .image-container {
+            position: absolute;
+            top: 60%;
+            right: 60px; /* Ajusta la posición de las imágenes */
+            transform: translateY(-80%);
+            transition: transform 0.3s ease; /* Agrega una transición suave al cambiar la posición */
+        }
+        
+        .image-container img {
+            max-width: 400px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            transition: transform 0.3s ease; /* Agrega una transición suave al hacer zoom */
+        }
+        
+        .image-container img:hover {
+            transform: scale(1.1); /* Hace un zoom al pasar el mouse sobre las imágenes */
+        }
+        
+        /* Estilos para los títulos y párrafos */
+        h2 {
+            color: #333;
+            margin-top: 0;
+        }
+        
+        p {
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        /* Estilos para dispositivos móviles */
+        @media (max-width: 600px) {
+            .operation {
+                width: 100%; /* Cambia el ancho a 100% en dispositivos móviles */
+            }
+            .image-container {
+                display: none; /* Oculta las imágenes en dispositivos móviles */
+            }
+        }
+    </style>
 </head>
+<body>
+
 <nav>
-    <a href="inicio.html">inicio</a>
-    <a href="actividades.html">actividades</a>
-    <a href="evaluacion.html">evaluacion</a>
-    <a href="materialcomplementario.html">materialcomplementario</a>
-    <a href="creditos.html">creditos</a>
-    <a href="contenido.html">contenido</a>
+    <a href="inicio.html">Inicio</a>
+    <a href="actividades.html">Actividades</a>
+    <a href="evaluacion.html">Evaluación</a>
+    <a href="materialcomplementario.html">Material Complementario</a>
+    <a href="creditos.html">Créditos</a>
+    <a href="contenido.html">Contenido</a>
 </nav>
-<body style="background-color: rgb(238, 137, 137);">
-    <h1>Operaciones Basicas</h1>
 
-    <p> Suma: La suma es una operación matemática básica que combina dos 
-        o más números para obtener un total o una cantidad. Se representa 
-        con el símbolo "+" y se lee como "más". Por ejemplo, en la suma 2 + 3 = 5, 
-        se están combinando los números 2 y 3 para obtener 5 como resultado.
-    </p>
-    
-    <p>
-        Resta: La resta es otra operación básica que consiste en encontrar la 
-        diferencia entre dos números. Se representa con el símbolo "-" y se lee
-        como "menos". Por ejemplo, en la resta 5 - 3 = 2, se está restando 3 de
-        5 para obtener 2 como resultado.
-    </p>
+<h1>Operaciones Básicas</h1>
 
-    <p>
-        Multiplicación: La multiplicación es una operación que combina grupos iguales
-        de números para encontrar el total. Se representa con el símbolo "x" o con 
-        un punto "." y se lee como "por" o "multiplicado por". Por ejemplo, en la multiplicación
-        2 x 3 = 6, se están multiplicando 2 grupos de 3 para obtener 6 como resultado.
-    </p>
+<div class="container" >
+    <div class="operation">
+        <h2>¿Qué son las operaciones básicas?</h2>
+        <p>Las operaciones básicas en matemática son la suma, la resta, la multiplicación y la división. Algunos autores consideran adicionalmente tres operaciones más: potenciación,  radicación y logaritmo. Dichas operaciones básicas se aplican tanto a los números como a las expresiones algebraicas.</p>
+    </div>
+    <div class="image-container">
+        <img src="C:\Users\CRISTIAN\Downloads\descarga (28).jpeg" alt="Suma" width="60%" height="50&">
+    </div>
+</div>
 
-    <p>
-        División: La división es la operación inversa de la multiplicación
-        y se utiliza para repartir una cantidad en grupos iguales o para encontrar
-        cuántas veces un número cabe en otro. Se representa con el símbolo "÷" o 
-        con una línea horizontal y se lee como "dividido por". Por ejemplo, en la división 
-        6 ÷ 3 = 2, se está dividiendo 6 en 3 grupos iguales para obtener 2 como resultado.
-    </p>
+
+
+<div class="container">
+    <div class="operation">
+        <h2>Suma</h2>
+        <p>La suma es una operación matemática básica que combina dos o más números para obtener un total o una cantidad. Se representa con el símbolo "+" y se lee como "más". Por ejemplo, en la suma 2 + 3 = 5, se están combinando los números 2 y 3 para obtener 5 como resultado.</p>
+    </div>
+    <div class="image-container">
+        <img src="C:\Users\CRISTIAN\Downloads\suma.jpeg" alt="Suma" width="303px" height="500px">
+    </div>
+</div>
+<div class="container">
+    <div class="operation">
+        <h2>Resta</h2>
+        <p>La resta es otra operación básica que consiste en encontrar la diferencia entre dos números. Se representa con el símbolo "-" y se lee como "menos". Por ejemplo, en la resta 5 - 3 = 2, se está restando 3 de 5 para obtener 2 como resultado.</p>
+    </div>
+    <div class="image-container">
+        <img src="C:\Users\CRISTIAN\Downloads\resta.jpg" alt="Suma" width="300px" height="500px" >
+    </div>
+</div>
+
+<div class="container">
+    <div class="operation">
+        <h2>Multiplicación</h2>
+        <p>La multiplicación es una operación que combina grupos iguales de números para encontrar el total. Se representa con el símbolo "x" o con un punto "." y se lee como "por" o "multiplicado por". Por ejemplo, en la multiplicación 2 x 3 = 6, se están multiplicando 2 grupos de 3 para obtener 6 como resultado.</p>
+    </div>
+    <div class="image-container">
+        <img src="C:\Users\CRISTIAN\Downloads\multi.jpg" alt="Suma">
+    </div>
+</div>
+<div class="container">
+    <div class="operation">
+        <h2>División</h2>
+        <p>La división es la operación inversa de la multiplicación y se utiliza para repartir una cantidad en grupos iguales o para encontrar cuántas veces un número cabe en otro. Se representa con el símbolo "÷" o con una línea horizontal y se lee como "dividido por". Por ejemplo, en la división 6 ÷ 3 = 2, se está dividiendo 6 en 3 grupos iguales para obtener 2 como resultado.</p>
+    </div>
+    <div class="image-container">
+        <img src="C:\Users\CRISTIAN\Downloads\divi.jpeg" alt="Suma">
+    </div>
+</div>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problemas de Operaciones Básicas</title>
+    <style>
+        /* Estilos CSS */
+
+        /* Resto de los estilos se mantienen igual */
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Navegación -->
+    </header>
+
+    <div class="container">
+        <h1>Problemas de Operaciones Básicas</h1>
+
+        <a href="file:///C:/Users/CRISTIAN/Desktop/REDA2024/READ2024/actividades.html">Resolver Problemas</a> <!-- Enlace para resolver problemas -->
+
+    </div>
+</body>
+</html>
 
 
 </body>
