@@ -6,7 +6,7 @@
     <title>Operaciones Básicas</title>
     <link rel="stylesheet" href="uno">
     <style>
-        /* Estilos generales */
+       
         body {
             font-family: Arial, sans-serif;
             background-color: #f3ed9a;
@@ -14,7 +14,6 @@
             padding: 0;
         }
         
-        /* Estilos para la barra de navegación */
         nav {
             background-color: #333;
             padding: 10px;
@@ -25,21 +24,21 @@
             color: rgb(247, 246, 199);
             text-decoration: none;
             margin: 0 10px;
-            transition: color 0.3s ease; /* Transición suave al cambiar el color del texto */
+            transition: color 0.3s ease; 
         }
         
         nav a:hover {
-            color: #ff7f50; /* Cambia el color al pasar el mouse sobre los enlaces */
+            color: #ff7f50; 
         }
         
-        /* Estilos para el encabezado */
+        
         h1 {
             text-align: center;
             color: #333;
             margin-top: 20px;
         }
         
-        /* Estilos para los contenedores de operaciones */
+        
         .container {
             max-width: 800px;
             margin: 20px auto;
@@ -52,10 +51,9 @@
             flex-wrap: wrap;
             justify-content: space-between;
             position: relative;
-            overflow: hidden; /* Evita que las imágenes se desborden en pantallas pequeñas */
+            overflow: hidden; 
         }
         
-        /* Estilos para las operaciones */
         .operation {
             width: calc(50% - 20px);
             background-color: #f0ee82;
@@ -65,16 +63,16 @@
             margin-bottom: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             position: relative;
-            overflow: hidden; /* Evita que las imágenes se desborden en pantallas pequeñas */
+            overflow: hidden; 
         }
         
-        /* Estilos para las imágenes */
+        
         .image-container {
             position: absolute;
             top: 60%;
-            right: 60px; /* Ajusta la posición de las imágenes */
+            right: 60px; 
             transform: translateY(-80%);
-            transition: transform 0.3s ease; /* Agrega una transición suave al cambiar la posición */
+            transition: transform 0.3s ease; 
         }
         
         .image-container img {
@@ -82,14 +80,14 @@
             height: auto;
             display: block;
             margin: 0 auto;
-            transition: transform 0.3s ease; /* Agrega una transición suave al hacer zoom */
+            transition: transform 0.3s ease; 
         }
         
         .image-container img:hover {
-            transform: scale(1.1); /* Hace un zoom al pasar el mouse sobre las imágenes */
+            transform: scale(1.1); 
         }
         
-        /* Estilos para los títulos y párrafos */
+        
         h2 {
             color: #333;
             margin-top: 0;
@@ -100,13 +98,13 @@
             line-height: 1.6;
         }
         
-        /* Estilos para dispositivos móviles */
+        
         @media (max-width: 600px) {
             .operation {
-                width: 100%; /* Cambia el ancho a 100% en dispositivos móviles */
+                width: 100%; 
             }
             .image-container {
-                display: none; /* Oculta las imágenes en dispositivos móviles */
+                display: none; 
             }
         }
     </style>
