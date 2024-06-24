@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz de Matemáticas</title>
+    <style>
+        body {
+            background-color: #e0f7e0;
+            font-family: Arial, sans-serif;
+            color: #333;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #2e7d32;
+        }
+        .question {
+            margin: 20px 0;
+        }
+        .question p {
+            margin: 0 0 10px;
+        }
+        .timer {
+            font-size: 1.2em;
+            color: #d32f2f;
+        }
+    </style>
+    <script>
+        let timer;
+        let timeLeft = 120;
+
+        function startTimer() {
+            timer = setInterval(function() {
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    document.getElementById("quiz-form").submit();
+                } else {
+                    document.getElementById("timer").innerHTML = "Tiempo restante: " + timeLeft + " segundos";
+                }
+                timeLeft -= 1;
+            }, 1000);
+        }
+
+        function checkAnswers(event) {
+            event.preventDefault();
+            clearInterval(timer);
+
+            const form = document.forms["quiz-form"];
+            let score = 0;
+
+            const answers = {
+                "q1": "17",
+                "q2": "8",
+                "q3": "40",
+                "q4": "15",
+                "q5": "5"
+            };
+
+            for (const [question, correctAnswer] of Object.entries(answers)) {
+                if (form[question].value === correctAnswer) {
+                    score += 1;
+                }
+            }
+
+            alert("Tu puntuación es: " + score + " de 5");
+        }
+
+        window.onload = function() {
+            startTimer();
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Quiz de Matemáticas</h1>
+        <p class="timer" id="timer">Tiempo restante: 120 segundos</p>
+        <form id="quiz-form" onsubmit="checkAnswers(event)">
+            <div class="question">
+                <p>1. Ana tenía 25 chocolates y se comió 8. ¿Cuántos chocolates le quedaron?</p>
+                <label><input type="radio" name="q1" value="15"> 15</label><br>
+                <label><input type="radio" name="q1" value="17"> 17</label><br>
+                <label><input type="radio" name="q1" value="20"> 20</label><br>
+            </div>
+            <div class="question">
+                <p>2. Roberto tenía 12 billetes de $50 y gastó $400. ¿Cuántos billetes le quedaron?</p>
+                <label><input type="radio" name="q2" value="6"> 6</label><br>
+                <label><input type="radio" name="q2" value="8"> 8</label><br>
+                <label><input type="radio" name="q2" value="10"> 10</label><br>
+            </div>
+            <div class="question">
+                <p>3. María tiene 80 caramelos y quiere repartirlos entre 4 amigos de manera equitativa. ¿Cuántos caramelos recibirá cada amigo?</p>
+                <label><input type="radio" name="q3" value="20"> 20</label><br>
+                <label><input type="radio" name="q3" value="30"> 30</label><br>
+                <label><input type="radio" name="q3" value="40"> 40</label><br>
+            </div>
+            <div class="question">
+                <p>4. Jorge caminó 5 kilómetros en la mañana y 10 kilómetros por la tarde. ¿Cuántos kilómetros caminó en total?</p>
+                <label><input type="radio" name="q4" value="12"> 12</label><br>
+                <label><input type="radio" name="q4" value="15"> 15</label><br>
+                <label><input type="radio" name="q4" value="20"> 20</label><br>
+            </div>
+            <div class="question">
+                <p>5. Si un autobús tiene capacidad para 50 personas y en un viaje van 45 personas, ¿cuántos asientos quedan vacíos?</p>
+                <label><input type="radio" name="q5" value="5"> 5</label><br>
+                <label><input type="radio" name="q5" value="10"> 10</label><br>
+                <label><input type="radio" name="q5" value="15"> 15</label><br>
+            </div>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+</body>
+</html>
