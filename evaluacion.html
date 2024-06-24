@@ -62,13 +62,12 @@
                     <input type="radio" name="q4" value="4"> C. 4<br>
                     <input type="radio" name="q4" value="2"> D. 2<br><br><br>
         
-                    <button type="button" class="submit-btn" onclick="calculateScore()">resultado</button>
+                    <button type="button" class="submit-btn" onclick="calculateScore()">Resultado</button>
                 </form><br><br>
         
                 <div class="result" id="result"></div>
             </div>
 
-        
             <script>
                 function calculateScore() {
                     var form = document.getElementById("quiz-form");
@@ -92,11 +91,27 @@
                 <p>Contenido del aside derecho.</p>
             </div>
         </div>
-        </div>
         <div id="footer">
             <h3>Universidad de Córdoba</h3>
             <p>Esta página fue creada por estudiantes de licenciatura en infomática de tercer semestre</p>
         </div>
+        <div id="extra-content">
+            <h3>Quiz con Tiempo</h3>
+            <p>Haz clic en el botón de abajo para realizar el quiz con un límite de tiempo.</p>
+            <button class="timed-quiz-btn" onclick="startTimedQuiz()">Hacer Quiz con Tiempo</button>
+        </div>
+
     </div>
+    <div>
+        <center>
+        <script>
+            function startTimedQuiz() {
+                window.location.href = "file:///C:/Users/CRISTIAN/Desktop/REDA2024/READ2024/Quiz.html"; // Reemplaza con el enlace correcto
+            }
+        </script>
+        </center>
+        </div>
+   
 </body>
 </html>
+

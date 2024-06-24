@@ -63,3 +63,6 @@ body {
     text-align: center;
     padding: 10px;
 }
+.timed-quiz-btn {
+    background-color: #28a745; /* Color verde */
+}

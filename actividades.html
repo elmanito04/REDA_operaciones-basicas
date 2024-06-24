@@ -3,8 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contenido</title>
-    <link rel="stylesheet" href="pagina.css">
+    <title>Registro/Iniciar Sesión</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e0f7e9;
+        }
+
+        #container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        #header {
+            background-color: #2e7d32;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        #main-content {
+            display: flex;
+            flex: 1;
+            padding: 1rem;
+        }
+
+        #left-sidebar, #right-sidebar {
+            background-color: #a5d6a7;
+            padding: 1rem;
+            width: 20%;
+        }
+
+        #content {
+            background-color: #ffffff;
+            padding: 2rem;
+            flex: 1;
+            margin: 0 1rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #footer {
+            background-color: #2e7d32;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form label {
+            margin-top: 0.5rem;
+        }
+
+        form input {
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        form button {
+            background-color: #2e7d32;
+            color: white;
+            border: none;
+            padding: 0.75rem;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        form button:hover {
+            background-color: #1b5e20;
+        }
+
+        h2 {
+            color: #2e7d32;
+        }
+    </style>
 </head>
 <body>
     <div id="container">
@@ -18,6 +113,7 @@
                     <li><a href="evaluacion.html">Evaluación</a></li>
                     <li><a href="materialcomplementario.html">Material Complementario</a></li>
                     <li><a href="creditos.html">Créditos</a></li>
+                    <li><a href="chatbot.html">Chatbot</a></li>
                 </ul>
             </nav>
         </div>
@@ -27,7 +123,17 @@
                 <p>Contenido del aside izquierdo.</p>
             </div>
             <div id="content">
-                <p>Agrega aqui el contenido de actividades</p>
+                <h2>Registrarse/Iniciar sesión</h2>
+                <form id="login-form">
+                    <label for="username">Usuario:</label>
+                    <input type="text" id="username" name="username" required>
+                    
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" name="password" required>
+                    
+                    <button type="submit">Iniciar sesión</button>
+                </form>
+                <p>¿No tienes una cuenta? <a href="registro.html">Regístrate aquí</a></p>
             </div>
             <div id="right-sidebar">
                 <h3>Aside Derecho</h3>
@@ -36,7 +142,7 @@
         </div>
         <div id="footer">
             <h3>Universidad de Córdoba</h3>
-            <p>Esta página fue creada por estudiantes de licenciatura en infomática de tercer semestre</p>
+            <p>Esta página fue creada por estudiantes de licenciatura en informática de tercer semestre</p>
         </div>
     </div>
 </body>

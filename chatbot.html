@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operaciones Básicas - ChatBot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #d4edda; /* Cambiado a un verde claro */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        nav {
+            background-color: #155724; /* Verde oscuro */
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+        }
+
+        nav a {
+            color: #e8f5e9; /* Verde muy claro */
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #c8e6c9; /* Verde claro */
+        }
+
+        h1 {
+            text-align: center;
+            color: #155724; /* Verde oscuro */
+            margin-top: 20px;
+        }
+
+        .content {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px;
+        }
+
+        .chat-container {
+            flex: 1;
+            max-width: 800px;
+            padding: 20px;
+            background-color: #fff;
+            border: 2px solid #155724; /* Verde oscuro */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .chatbox {
+            border: 1px solid #ccc;
+            padding: 10px;
+            height: 300px;
+            overflow-y: scroll;
+        }
+
+        .user-input {
+            display: flex;
+            margin-top: 10px;
+        }
+
+        .user-input input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .user-input button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #28a745; /* Verde medio */
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+
+        .user-input button:hover {
+            background-color: #218838; /* Verde oscuro */
+        }
+
+        .chat-message {
+            margin-bottom: 10px;
+        }
+
+        .user-message {
+            text-align: right;
+            color: blue;
+        }
+
+        .bot-message {
+            text-align: left;
+            color: green;
+        }
+
+        .questions-container {
+            width: 300px;
+            padding: 20px;
+            background-color: #fff;
+            border: 2px solid #155724; /* Verde oscuro */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-left: 20px;
+        }
+
+        .questions-container h2 {
+            margin-top: 0;
+        }
+
+        .questions-container ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .questions-container ul li {
+            margin-bottom: 10px;
+        }
+
+        .questions-container ul li a {
+            text-decoration: none;
+            color: #155724; /* Verde oscuro */
+            transition: color 0.3s ease;
+        }
+
+        .questions-container ul li a:hover {
+            color: #218838; /* Verde oscuro */
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <a href="inicio.html">Inicio</a>
+    <a href="actividades.html">Actividades</a>
+    <a href="evaluacion.html">Evaluación</a>
+    <a href="materialcomplementario.html">Material Complementario</a>
+    <a href="creditos.html">Créditos</a>
+    <a href="contenido.html">Contenido</a>
+    <a href="chatbot.html">chatbot</a>
+</nav>
+
+<h1>ChatBot de Operaciones Básicas</h1>
+
+<div class="content">
+    <div class="chat-container">
+        <div id="chatbox" class="chatbox">
+            <div class="chat-message bot-message">Hola! ¿En qué puedo ayudarte hoy? Pregúntame algo sobre operaciones matemáticas básicas.</div>
+        </div>
+        <div class="user-input">
+            <input type="text" id="userInput" placeholder="Escribe tu pregunta aquí...">
+            <button onclick="sendMessage()">Enviar</button>
+        </div>
+    </div>
+    <div class="questions-container">
+        <h2>Preguntas Frecuentes</h2>
+        <ul>
+            <li><a href="#" onclick="insertQuestion('¿Qué es la suma?')">¿Qué es la suma?</a></li>
+            <li><a href="#" onclick="insertQuestion('¿Qué es la resta?')">¿Qué es la resta?</a></li>
+            <li><a href="#" onclick="insertQuestion('¿Qué es la multiplicación?')">¿Qué es la multiplicación?</a></li>
+            <li><a href="#" onclick="insertQuestion('¿Qué es la división?')">¿Qué es la división?</a></li>
+            <li><a href="#" onclick="insertQuestion('¿Qué es la potenciación?')">¿Qué es la potenciación?</a></li>
+            <li><a href="#" onclick="insertQuestion('¿Qué es la radicación?')">¿Qué es la radicación?</a></li>
+            <li><a href="#" onclick="insertQuestion('¿Qué es un logaritmo?')">¿Qué es un logaritmo?</a></li>
+            <li><a href="#" onclick="insertQuestion('¿Cómo se representa la suma?')">¿Cómo se representa la suma?</a></li>
+            <li><a href="#" onclick="insertQuestion('¿Cómo se representa la resta?')">¿Cómo se representa la resta?</a></li>
+            <li><a href="#" onclick="insertQuestion('¿Cómo se representa la multiplicación?')">¿Cómo se representa la multiplicación?</a></li>
+            <li><a href="#" onclick="insertQuestion('¿Cómo se representa la división?')">¿Cómo se representa la división?</a></li>
+            <li><a href="#" onclick="insertQuestion('¿Cuál es el símbolo de la potenciación?')">¿Cuál es el símbolo de la potenciación?</a></li>
+            <li><a href="#" onclick="insertQuestion('¿Cuál es el símbolo de la radicación?')">¿Cuál es el símbolo de la radicación?</a></li>
+            <li><a href="#" onclick="insertQuestion('¿Cuál es el símbolo del logaritmo?')">¿Cuál es el símbolo del logaritmo?</a></li>
+            <li><a href="#" onclick="insertQuestion('¿Cómo se realiza una suma?')">¿Cómo se realiza una suma?</a></li>
+            <li><a href="#" onclick="insertQuestion('¿Cómo se realiza una resta?')">¿Cómo se realiza una resta?</a></li>
+            <li><a href="#" onclick="insertQuestion('¿Cómo se realiza una multiplicación?')">¿Cómo se realiza una multiplicación?</a></li>
+            <li><a href="#" onclick="insertQuestion('¿Cómo se realiza una división?')">¿Cómo se realiza una división?</a></li>
+            <li><a href="#" onclick="insertQuestion('¿Cómo se calcula una potencia?')">¿Cómo se calcula una potencia?</a></li>
+            <li><a href="#" onclick="insertQuestion('¿Cómo se calcula una raíz cuadrada?')">¿Cómo se calcula una raíz cuadrada?</a></li>
+            <li><a href="#" onclick="insertQuestion('¿Cómo se calcula un logaritmo?')">¿Cómo se calcula un logaritmo?</a></li>
+            <li><a href="#" onclick="insertQuestion('¿Qué es una suma de fracciones?')">¿Qué es una suma de fracciones?</a></li>
+            <li><a href="#" onclick="insertQuestion('¿Qué es una resta de fracciones?')">¿Qué es una resta de fracciones?</a></li>
+            <li><a href="#" onclick="insertQuestion('¿Qué es una multiplicación de fracciones?')">¿Qué es una multiplicación de fracciones?</a></li>
+            <li><a href="#" onclick="insertQuestion('¿Qué es una división de fracciones?')">¿Qué es una división de fracciones?</a></li>
+            <li><a href="#" onclick="insertQuestion('¿Qué es una suma de decimales?')">¿Qué es una suma de decimales?</a></li>
+            <li><a href="#" onclick="insertQuestion('¿Qué es una resta de decimales?')">¿Qué es una resta de decimales?</a></li>
+            <li><a href="#" onclick="insertQuestion('¿Qué es una multiplicación de decimales?')">¿Qué es una multiplicación de decimales?</a></li>
+            <li><a href="#" onclick="insertQuestion('¿Qué es una división de decimales?')">¿Qué es una división de decimales?</a></li>
+            <li><a href="#" onclick="insertQuestion('¿Qué es una fracción?')">¿Qué es una fracción?</a></li>
+            <li><a href="#" onclick="insertQuestion('¿Qué es un decimal?')">¿Qué es un decimal?</a></li>
+            <li><a href="#" onclick="insertQuestion('¿Qué es un porcentaje?')">¿Qué es un porcentaje?</a></li>
+            <li><a href="#" onclick="insertQuestion('¿Cómo se calcula un porcentaje?')">¿Cómo se calcula un porcentaje?</a></li>
+            <li><a href="#" onclick="insertQuestion('¿Cómo se convierte una fracción a decimal?')">¿Cómo se convierte una fracción a decimal?</a></li>
+            <li><a href="#" onclick="insertQuestion('¿Cómo se convierte un decimal a fracción?')">¿Cómo se convierte un decimal a fracción?</a></li>
+            <li><a href="#" onclick="insertQuestion('¿Cómo se suman números enteros?')">¿Cómo se suman números enteros?</a></li>
+            <li><a href="#" onclick="insertQuestion('¿Cómo se restan números enteros?')">¿Cómo se restan números enteros?</a></li>
+            <li><a href="#" onclick="insertQuestion('¿Cómo se multiplican números enteros?')">¿Cómo se multiplican números enteros?</a></li>
+            <li><a href="#" onclick="insertQuestion('¿Cómo se dividen números enteros?')">¿Cómo se dividen números enteros?</a></li>
+            <li><a href="#" onclick="insertQuestion('¿Qué es el mínimo común múltiplo?')">¿Qué es el mínimo común múltiplo?</a></li>
+            <li><a href="#" onclick="insertQuestion('¿Qué es el máximo común divisor?')">¿Qué es el máximo común divisor?</a></li>
+            <li><a href="#" onclick="insertQuestion('¿Qué es una ecuación?')">¿Qué es una ecuación?</a></li>
+            <li><a href="#" onclick="insertQuestion('¿Qué es una incógnita en una ecuación?')">¿Qué es una incógnita en una ecuación?</a></li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    const questions = {
+        "¿Qué es la suma?": "La suma es una operación matemática básica que combina dos o más números para obtener un total o una cantidad. Se representa con el símbolo '+' y se lee como 'más'.",
+        "¿Qué es la resta?": "La resta es otra operación básica que consiste en encontrar la diferencia entre dos números. Se representa con el símbolo '-' y se lee como 'menos'.",
+        "¿Qué es la multiplicación?": "La multiplicación es una operación que combina grupos iguales de números para encontrar el total. Se representa con el símbolo 'x' o con un punto '.' y se lee como 'por'.",
+        "¿Qué es la división?": "La división es la operación inversa de la multiplicación y se utiliza para repartir una cantidad en grupos iguales o para encontrar cuántas veces un número cabe en otro.",
+        "¿Qué es la potenciación?": "La potenciación es una operación matemática que implica elevar un número (la base) a la potencia de otro número (el exponente).",
+        "¿Qué es la radicación?": "La radicación es la operación inversa de la potenciación y consiste en encontrar un número que, elevado a cierta potencia, da como resultado el número original.",
+        "¿Qué es un logaritmo?": "El logaritmo es la operación inversa de la exponenciación y se utiliza para determinar la potencia a la cual se debe elevar una base para obtener un número determinado.",
+        "¿Cómo se representa la suma?": "La suma se representa con el símbolo '+'.",
+        "¿Cómo se representa la resta?": "La resta se representa con el símbolo '-'.",
+        "¿Cómo se representa la multiplicación?": "La multiplicación se representa con el símbolo 'x' o con un punto '.'.",
+        "¿Cómo se representa la división?": "La división se representa con el símbolo '÷' o con una línea horizontal.",
+        "¿Cuál es el símbolo de la potenciación?": "El símbolo de la potenciación es '^'.",
+        "¿Cuál es el símbolo de la radicación?": "El símbolo de la radicación es '√'.",
+        "¿Cuál es el símbolo del logaritmo?": "El símbolo del logaritmo es 'log'.",
+        "¿Cómo se realiza una suma?": "Para realizar una suma, se combinan dos o más números para obtener un total.",
+        "¿Cómo se realiza una resta?": "Para realizar una resta, se encuentra la diferencia entre dos números.",
+        "¿Cómo se realiza una multiplicación?": "Para realizar una multiplicación, se combinan grupos iguales de números para encontrar el total.",
+        "¿Cómo se realiza una división?": "Para realizar una división, se reparte una cantidad en grupos iguales.",
+        "¿Cómo se calcula una potencia?": "Para calcular una potencia, se eleva un número (la base) a la potencia de otro número (el exponente).",
+        "¿Cómo se calcula una raíz cuadrada?": "Para calcular una raíz cuadrada, se encuentra el número que, al ser multiplicado por sí mismo, da como resultado el número original.",
+        "¿Cómo se calcula un logaritmo?": "Para calcular un logaritmo, se encuentra el exponente al cual se debe elevar la base para obtener el número dado.",
+        "¿Qué es una suma de fracciones?": "La suma de fracciones es una operación que combina dos o más fracciones para obtener una fracción total.",
+        "¿Qué es una resta de fracciones?": "La resta de fracciones es una operación que encuentra la diferencia entre dos o más fracciones.",
+        "¿Qué es una multiplicación de fracciones?": "La multiplicación de fracciones es una operación que combina grupos iguales de fracciones para encontrar el total.",
+        "¿Qué es una división de fracciones?": "La división de fracciones es una operación que reparte una fracción en grupos iguales.",
+        "¿Qué es una suma de decimales?": "La suma de decimales es una operación que combina dos o más números decimales para obtener un total.",
+        "¿Qué es una resta de decimales?": "La resta de decimales es una operación que encuentra la diferencia entre dos o más números decimales.",
+        "¿Qué es una multiplicación de decimales?": "La multiplicación de decimales es una operación que combina grupos iguales de números decimales para encontrar el total.",
+        "¿Qué es una división de decimales?": "La división de decimales es una operación que reparte una cantidad decimal en grupos iguales.",
+        "¿Qué es una fracción?": "Una fracción es una parte de un todo y se representa con un numerador y un denominador.",
+        "¿Qué es un decimal?": "Un decimal es un número que tiene una parte entera y una parte fraccionaria, separadas por un punto decimal.",
+        "¿Qué es un porcentaje?": "Un porcentaje es una fracción con denominador 100 y se representa con el símbolo '%'.",
+        "¿Cómo se calcula un porcentaje?": "Para calcular un porcentaje, se multiplica el número por el porcentaje y se divide por 100.",
+        "¿Cómo se convierte una fracción a decimal?": "Para convertir una fracción a decimal, se divide el numerador por el denominador.",
+        "¿Cómo se convierte un decimal a fracción?": "Para convertir un decimal a fracción, se escribe el decimal como una fracción y se simplifica.",
+        "¿Cómo se suman números enteros?": "Para sumar números enteros, se combinan los valores de los números para obtener un total.",
+        "¿Cómo se restan números enteros?": "Para restar números enteros, se encuentra la diferencia entre los valores de los números.",
+        "¿Cómo se multiplican números enteros?": "Para multiplicar números enteros, se combinan grupos iguales de números para encontrar el total.",
+        "¿Cómo se dividen números enteros?": "Para dividir números enteros, se reparte una cantidad en grupos iguales.",
+        "¿Qué es el mínimo común múltiplo?": "El mínimo común múltiplo es el menor número entero que es múltiplo común de dos o más números.",
+        "¿Qué es el máximo común divisor?": "El máximo común divisor es el mayor número entero que divide exactamente a dos o más números.",
+        "¿Qué es una ecuación?": "Una ecuación es una igualdad matemática que contiene una o más incógnitas.",
+        "¿Qué es una incógnita en una ecuación?": "Una incógnita es un valor desconocido que se busca encontrar en una ecuación."
+    };
+
+    function sendMessage() {
+        const userInput = document.getElementById("userInput").value;
+        if (userInput === "") return;
+
+        const chatbox = document.getElementById("chatbox");
+        const userMessageDiv = document.createElement("div");
+        userMessageDiv.className = "chat-message user-message";
+        userMessageDiv.textContent = userInput;
+        chatbox.appendChild(userMessageDiv);
+
+        const botResponse = getBotResponse(userInput);
+        const botMessageDiv = document.createElement("div");
+        botMessageDiv.className = "chat-message bot-message";
+        botMessageDiv.textContent = botResponse;
+        chatbox.appendChild(botMessageDiv);
+
+        document.getElementById("userInput").value = "";
+        chatbox.scrollTop = chatbox.scrollHeight;
+    }
+
+    function getBotResponse(input) {
+        return questions[input] || "Lo siento, no entiendo la pregunta. Por favor, intenta con otra pregunta relacionada con operaciones matemáticas básicas.";
+    }
+
+    function insertQuestion(question) {
+        document.getElementById("userInput").value = question;
+        sendMessage();
+    }
+</script>
+
+</body>
+</html>
