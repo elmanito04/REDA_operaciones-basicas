@@ -30,6 +30,24 @@
             padding: 1rem;
         }
 
+        #main-content {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        #left-sidebar, #right-sidebar {
+            flex-basis: 20%;
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #content {
+            flex-basis: 55%;
+        }
+
         form {
             display: flex;
             flex-direction: column;
@@ -92,7 +110,12 @@
             <p>¡Aprende más sobre operaciones básicas!</p>
             <!-- Contenido adicional aquí -->
         </aside>
+
+    </div>
+
+    <div id="footer">
+        <h3>Universidad de Córdoba</h3>
+        <p>Esta página fue creada por estudiantes de licenciatura en informática de tercer semestre</p>
     </div>
 </body>
 </html>
-
