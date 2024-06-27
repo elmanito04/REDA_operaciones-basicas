@@ -24,6 +24,10 @@
 </head>
 <body>
     <center>
+        <h1 id="titulo">INTRODUCE TUS DATOS</h1>
+    </center>
+
+    <center>
         <table border="3">
             <tr>
                 <th>Propiedad</th>
@@ -103,29 +107,30 @@
             var nota2 = parseFloat(document.getElementById("nota2").value);
             var nota3 = parseFloat(document.getElementById("nota3").value);
 
-            
+          
             if (isNaN(nota1) || isNaN(nota2) || isNaN(nota3)) {
                 alert("Por favor ingrese valores numéricos válidos para las notas.");
                 return;
             }
 
-            
+        
             var nf = (nota1 + nota2 + nota3) / 3;
 
-            
+           
             salida += '<tr><td>' + nombre + '</td><td>' + apellido + '</td><td>' +
                 sexo + '</td><td>' + fechaReg + '</td><td>' + añoNac + '</td><td>' +
                 edad(añoNac) + '</td><td>' + evaluarEdad(añoNac) + '</td><td>' +
                 evaluarNotaFinal(nf) + '</td><td>' + calificacionCualitativa(nf) + '</td><td>' +
                 nf.toFixed(1) + '</td></tr>';
             
-           
+            
             document.getElementById("cuerpo").innerHTML = salida;
 
           
             LimpiarCajas();
         }
 
+       
         function LimpiarCajas() {
             document.getElementById("nom").value = "";
             document.getElementById("ape").value = "";
@@ -138,21 +143,22 @@
             document.getElementById("nom").focus();
         }
 
+        
         function edad(añoNac) {
             return (new Date().getFullYear() - añoNac);
         }
 
+       
         function evaluarEdad(añoNac) {
             var edadCalc = edad(añoNac);
             return edadCalc >= 18 ? "Mayor de edad" : "Menor de edad";
         }
 
         function evaluarNotaFinal(nf) {
-    var resultado = nf >= 3.0 ? "Aprobado" : "Reprobado";
-    var color = nf >= 3.0 ? "blue" : "red"; // Color verde para aprobado, rojo para reprobado
-    return "<span style='color: " + color + "; font-weight: bold;'>" + resultado + "</span>";
-}
-
+            var resultado = nf >= 3.0 ? "Aprobado" : "Reprobado";
+            var color = nf >= 3.0 ? "blue" : "red"; 
+            return "<span style='color: " + color + "; font-weight: bold;'>" + resultado + "</span>";
+        }
 
         function calificacionCualitativa(nf) {
             if (nf < 2.0) {
@@ -171,6 +177,11 @@
                 return "Nota fuera de rango";
             }
         }
+
+        var titulo = document.getElementById('titulo');
+        titulo.addEventListener('mouseover', function() {
+            titulo.style.cursor = 'pointer'; 
+        });
     </script>
 </body>
 </html>
