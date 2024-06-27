@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrada y salida de datos</title>
+
+    <style>
+        body {
+            background-color: #FFC0CB; /* Rosa claro */
+            font-size: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-style: italic;
+            color: #4B0082; /* Índigo oscuro para mejorar la legibilidad */
+        }
+
+        table {
+            background-color: #FF69B4; /* Rosa fuerte */
+            color: white; /* Blanco para mejorar la legibilidad */
+            margin-bottom: 20px; /* Espacio entre tablas */
+        }
+
+        th, td {
+            padding: 10px; /* Añadir algo de relleno a las celdas */
+        }
+
+        button {
+            background-color: #FF1493; /* Rosa oscuro */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #FF69B4; /* Cambiar color al pasar el ratón */
+        }
+
+        h1 {
+            color: #4B0082; /* Índigo oscuro */
+        }
+
+        hr {
+            border: 0;
+            height: 3px;
+            background: #4B0082; /* Índigo oscuro */
+            width: 50%;
+        }
+    </style>
+   
+</head>
+<body>
+    <center>
+    <table border="3">
+        <th>Nombre y Apellido</th>
+        <th>Valor</th>
+        <tbody>
+            <br>
+            <h1>Datos Personales</h1>
+            <tr>
+                <td>Digite sus nombres</td>
+                <td><input type="text" name="nom" id="nom" placeholder="Escriba su nombre"></td>
+            </tr>
+            <tr>
+                <td>Digite sus apellidos</td>
+                <td><input type="text" name="ape" id="ape" placeholder="Escriba sus apellidos"></td>
+            </tr>
+            <tr> <!-- Nueva fila para la fecha de nacimiento -->
+                <td>Fecha de nacimiento</td>
+                <td><input type="date" name="fecha_nacimiento" id="fecha_nacimiento"></td>
+            </tr>
+            <tr> <!-- Nueva fila para la fecha de registro -->
+                <td>Fecha de registro</td>
+                <td><input type="date" name="fecha_registro" id="fecha_registro"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button onclick="mostrarInput()">Enviar</button>
+    <br>
+    <br>
+    <h1>Listado de Datos Digitados por Usted</h1>
+    <hr noshade="noshade">
+
+    <table border="3">
+        <th>Nombres</th>
+        <th>Apellidos</th>
+        <th>Fecha de nacimiento</th> <!-- Columna agregada para la fecha de nacimiento -->
+        <th>Fecha de registro</th> <!-- Columna agregada para la fecha de registro -->
+        <tbody id="cuerpo">
+        </tbody>
+    </table>
+    </center>
+
+    <script>
+        function mostrarInput() {
+            var nombre = document.getElementById("nom").value;
+            var apellido = document.getElementById("ape").value;
+            var fechaNacimiento = document.getElementById("fecha_nacimiento").value;
+            var fechaRegistro = document.getElementById("fecha_registro").value;
+            var salida = "<tr><td>" + nombre + "</td><td>" + apellido + "</td><td>" + fechaNacimiento + "</td><td>" + fechaRegistro + "</td></tr>";
+            document.getElementById("cuerpo").innerHTML += salida;
+            limpiarCaja(); // Limpiar campos después de añadir la fila
+        }
+        
+        function limpiarCaja() {
+            document.getElementById("nom").value = "";
+            document.getElementById("ape").value = "";
+            document.getElementById("fecha_nacimiento").value = "";
+            document.getElementById("fecha_registro").value = "";
+        }
+    </script>
+</body>
+</html>

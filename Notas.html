@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sinmiedot</title>
+    <style>
+        body {
+            background-color: aqua;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px;
+            font-style: italic;
+        }
+        table {
+            background-color: bisque;
+            width: 80%;
+            margin: auto;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <table border="3">
+            <tr>
+                <th>Propiedad</th>
+                <th>Valor</th>
+            </tr>
+            <tbody>
+                <tr>
+                    <td><label for="nom">Digite sus Nombres:</label></td>
+                    <td><input type="text" name="nom" id="nom" placeholder="Escriba sus Nombre" autofocus></td>
+                </tr>
+                <tr>
+                    <td><label for="ape">Digite sus Apellidos:</label></td>
+                    <td><input type="text" name="ape" id="ape" placeholder="Escriba Aquí sus Apellidos"></td>
+                </tr>
+                <tr>
+                    <td>Seleccione Género:</td>
+                    <td>
+                        <span>Masculino</span> <input type="radio" name="sexo" id="Masculino" value="Masculino" checked>
+                        <br>
+                        <span>Femenino</span> <input type="radio" name="sexo" id="Femenino" value="Femenino">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Fecha de registro:</td>
+                    <td><input type="date" name="fecha" id="fecha"></td>
+                </tr>
+                <tr>
+                    <td>Digite año de nacimiento:</td>
+                    <td><input type="number" id="añoNac"></td>
+                </tr>
+                <tr>
+                    <td>Nota 1:</td>
+                    <td><input type="number" id="nota1"></td>
+                </tr>
+                <tr>
+                    <td>Nota 2:</td>
+                    <td><input type="number" id="nota2"></td>
+                </tr>
+                <tr>
+                    <td>Nota 3:</td>
+                    <td><input type="number" id="nota3"></td>
+                </tr>
+            </tbody>
+        </table>
+        <button id="enviar" onclick="mostrarInput()">Enviar</button>
+        <br><br>
+        <h1>Listado de Datos Digitados</h1>
+        <hr noshade="noshade" size="3" width="50%" color="green">
+        <table border="3">
+            <tr>
+                <th>Nombres</th>
+                <th>Apellidos</th>
+                <th>Género</th>
+                <th>Fecha Registro</th>
+                <th>Año Nacimiento</th>
+                <th>Edad</th>
+                <th>Mayor/Menor</th>
+                <th>Aprobado/Reprobado</th>
+                <th>Calificación Cualitativa</th>
+                <th>Nota Final</th> <!-- Nueva columna -->
+            </tr>
+            <tbody id="cuerpo">
+            </tbody>
+        </table>
+    </center>
+
+    <script>
+        var salida = '';
+
+        function mostrarInput() {
+            var nombre = document.getElementById("nom").value;
+            var apellido = document.getElementById("ape").value;
+            var sexo = document.querySelector('input[name="sexo"]:checked').value;
+            var fechaReg = document.getElementById("fecha").value;
+            var añoNac = document.getElementById("añoNac").value;
+            var nota1 = parseFloat(document.getElementById("nota1").value);
+            var nota2 = parseFloat(document.getElementById("nota2").value);
+            var nota3 = parseFloat(document.getElementById("nota3").value);
+
+            // Validar que las notas sean números válidos
+            if (isNaN(nota1) || isNaN(nota2) || isNaN(nota3)) {
+                alert("Por favor ingrese valores numéricos válidos para las notas.");
+                return;
+            }
+
+            // Calcular promedio de las notas
+            var nf = (nota1 + nota2 + nota3) / 3;
+
+            // Construir la fila con los datos y resultados calculados
+            salida += '<tr><td>' + nombre + '</td><td>' + apellido + '</td><td>' +
+                sexo + '</td><td>' + fechaReg + '</td><td>' + añoNac + '</td><td>' +
+                edad(añoNac) + '</td><td>' + evaluarEdad(añoNac) + '</td><td>' +
+                evaluarNotaFinal(nf) + '</td><td>' + calificacionCualitativa(nf) + '</td><td>' +
+                nf.toFixed(1) + '</td></tr>';
+            
+            // Actualizar el contenido del cuerpo de la tabla
+            document.getElementById("cuerpo").innerHTML = salida;
+
+            // Limpiar los campos después de mostrar los datos
+            LimpiarCajas();
+        }
+
+        function LimpiarCajas() {
+            document.getElementById("nom").value = "";
+            document.getElementById("ape").value = "";
+            document.getElementById("Masculino").checked = true;
+            document.getElementById("fecha").value = "";
+            document.getElementById("añoNac").value = "";
+            document.getElementById("nota1").value = "";
+            document.getElementById("nota2").value = "";
+            document.getElementById("nota3").value = "";
+            document.getElementById("nom").focus();
+        }
+
+        function edad(añoNac) {
+            return (new Date().getFullYear() - añoNac);
+        }
+
+        function evaluarEdad(añoNac) {
+            var edadCalc = edad(añoNac);
+            return edadCalc >= 18 ? "Mayor de edad" : "Menor de edad";
+        }
+
+        function evaluarNotaFinal(nf) {
+            return nf >= 3.0 ? "Aprobado" : "Reprobado";
+        }
+
+        function calificacionCualitativa(nf) {
+            if (nf < 2.0) {
+                return "<span style='color: purple; font-weight: bold;'>DEFICIENTE</span>";
+            } else if (nf < 3.0) {
+                return "<span style='color: orange; font-weight: bold;'>INSUFICIENTE</span>";
+            } else if (nf < 3.5) {
+                return "<span style='color: red; font-weight: bold;'>ACEPTABLE</span>";
+            } else if (nf < 4.0) {
+                return "<span style='color: black; font-weight: bold;'>BUENO</span>";
+            } else if (nf < 4.5) {
+                return "<span style='color: turquoise; font-weight: bold;'>SOBRESALIENTE</span>";
+            } else if (nf <= 5.0) {
+                return "<span style='color: mustard; font-weight: bold;'>EXCELENTE</span>";
+            } else {
+                return "Nota fuera de rango";
+            }
+        }
+    </script>
+</body>
+</html>

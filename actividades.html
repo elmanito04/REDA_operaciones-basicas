@@ -12,6 +12,30 @@
             background-color: #e0f7e9;
         }
 
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f7f59c;
+            border-radius: 8px;
+        }
+
+        #container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        #header {
+            background-color: #2e7d32;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
         nav ul {
             list-style: none;
             padding: 0;
@@ -36,14 +60,12 @@
             background-color: #1b5e20;
         }
 
-        #header, #main-content, #footer {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        #header {
-            text-align: center;
-            padding: 1rem 0;
+        #content {
+            background-color: #ffffff;
+            padding: 2rem;
+            flex: 1;
+            margin: 0 1rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         #footer {
@@ -103,28 +125,32 @@
         h2 {
             color: #2e7d32;
         }
+
+        /* Estilos para el aside */
+        aside {
+            flex-basis: 30%;
+            background-color: #eaf3fa;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
 <body>
-    <div id="header">
-        <h1>Aprendiendo las Operaciones Básicas</h1>
-        <nav>
-            <ul>
-                <li><a href="inicio.html">Inicio</a></li>
-                <li><a href="contenido.html">Contenido</a></li>
-                <li><a href="actividades.html">Actividades</a></li>
-                <li><a href="evaluacion.html">Evaluación</a></li>
-                <li><a href="materialcomplementario.html">Material Complementario</a></li>
-                <li><a href="creditos.html">Créditos</a></li>
-                <li><a href="chatbot.html">Chatbot</a></li>
-            </ul>
-        </nav>
-    </div>
-
-    <div id="main-content">
-        <div id="left-sidebar">
-            <h3>Aside Izquierdo</h3>
-            <p>Contenido del aside izquierdo.</p>
+    <div id="container">
+        <div id="header">
+            <h1> Aprendiendo las Operaciones Básicas</h1>
+            <nav>
+                <ul>
+                    <li><a href="inicio.html">Inicio</a></li>
+                    <li><a href="contenido.html">Contenido</a></li>
+                    <li><a href="actividades.html">Actividades</a></li>
+                    <li><a href="evaluacion.html">Evaluación</a></li>
+                    <li><a href="materialcomplementario.html">Material Complementario</a></li>
+                    <li><a href="creditos.html">Créditos</a></li>
+                    <li><a href="chatbot.html">Chatbot</a></li>
+                </ul>
+            </nav>
         </div>
         <div id="content">
             <h2>Registrarse/Iniciar sesión</h2>
@@ -143,6 +169,7 @@
             <h3>Aside Derecho</h3>
             <p>Contenido del aside derecho.</p>
         </div>
+>>>>>>> b40226376dce6bf2adf0d02a0229be76aaeeca33
     </div>
 
     <div id="footer">
@@ -151,3 +178,4 @@
     </div>
 </body>
 </html>
+
