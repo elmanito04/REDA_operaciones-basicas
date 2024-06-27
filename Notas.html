@@ -83,7 +83,7 @@
                 <th>Mayor/Menor</th>
                 <th>Aprobado/Reprobado</th>
                 <th>Calificación Cualitativa</th>
-                <th>Nota Final</th> <!-- Nueva columna -->
+                <th>Nota Final</th> 
             </tr>
             <tbody id="cuerpo">
             </tbody>
@@ -103,26 +103,26 @@
             var nota2 = parseFloat(document.getElementById("nota2").value);
             var nota3 = parseFloat(document.getElementById("nota3").value);
 
-            // Validar que las notas sean números válidos
+            
             if (isNaN(nota1) || isNaN(nota2) || isNaN(nota3)) {
                 alert("Por favor ingrese valores numéricos válidos para las notas.");
                 return;
             }
 
-            // Calcular promedio de las notas
+            
             var nf = (nota1 + nota2 + nota3) / 3;
 
-            // Construir la fila con los datos y resultados calculados
+            
             salida += '<tr><td>' + nombre + '</td><td>' + apellido + '</td><td>' +
                 sexo + '</td><td>' + fechaReg + '</td><td>' + añoNac + '</td><td>' +
                 edad(añoNac) + '</td><td>' + evaluarEdad(añoNac) + '</td><td>' +
                 evaluarNotaFinal(nf) + '</td><td>' + calificacionCualitativa(nf) + '</td><td>' +
                 nf.toFixed(1) + '</td></tr>';
             
-            // Actualizar el contenido del cuerpo de la tabla
+           
             document.getElementById("cuerpo").innerHTML = salida;
 
-            // Limpiar los campos después de mostrar los datos
+          
             LimpiarCajas();
         }
 
@@ -148,8 +148,11 @@
         }
 
         function evaluarNotaFinal(nf) {
-            return nf >= 3.0 ? "Aprobado" : "Reprobado";
-        }
+    var resultado = nf >= 3.0 ? "Aprobado" : "Reprobado";
+    var color = nf >= 3.0 ? "blue" : "red"; // Color verde para aprobado, rojo para reprobado
+    return "<span style='color: " + color + "; font-weight: bold;'>" + resultado + "</span>";
+}
+
 
         function calificacionCualitativa(nf) {
             if (nf < 2.0) {
