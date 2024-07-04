@@ -5,10 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
+<<<<<<< Updated upstream
             "type": "msedge",
             "request": "launch",
             "name": "Open inicio.html",
             "file": "c:\\Users\\Informatica04\\Documents\\GitHub\\REDA_operaciones-basicas\\inicio.html"
+=======
+            "type": "chrome",
+            "request": "launch",
+            "name": "Iniciar Chrome para localhost",
+            "url": "http://localhost:8080",
+            "webRoot": "${workspaceFolder}"
+>>>>>>> Stashed changes
         }
     ]
 }

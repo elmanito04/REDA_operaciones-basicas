@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrada y salida de datos</title>
+
+    <style>
+        body {
+            background-color: rgb(43, 223, 82);
+            font-size: 20px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+    </style>  
+</head>
+<body>
+    <center>
+        <table style="background-color: rgb(43, 241, 142);" border="3">
+            <th>Nombre y Apellido</th>
+            <th>Valor</th>
+            <tbody>
+                <br>
+                <h1>Datos Personales</h1>
+                <tr>
+                    <td>Ingrese sus nombres</td>
+                    <td><input type="text" name="nom" id="nom" placeholder="Escriba su nombre" autofocus></td>
+                </tr>
+                <tr>
+                    <td>Ingrese sus apellidos</td>
+                    <td><input type="text" name="ape" id="ape" placeholder="Escriba sus apellidos"></td>
+                </tr>
+                <tr>
+                    <td>Seleccione sexo</td>
+                    <td>
+                        <input type="radio" name="sexo" id="sexo" value='femenino' checked> <span> Femenino</span>
+                        <br>
+                        <input type="radio" name="sexo" id="sexo" value='masculino'> <span> Masculino</span> 
+                    </td>
+                </tr>
+                <tr>
+                    <td>Fecha de registro</td>
+                    <td>
+                        <input type="date" name="fecha" id="fecha">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Ingrese año de nacimiento</td>
+                    <td> 
+                        <input type="number" name="aNac" id="aNac">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Ingrese nota final</td>
+                    <td> 
+                        <input type="number" name="nf" id="nf">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button onclick="mostrarInput()">Enviar</button>
+        <br>
+        <br>
+        <h1>Listado de Datos Digitados</h1>
+        <hr noshade="noshade" size="3" width="50%" color="green">
+        <table border="3">
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Sexo</th>
+            <th>Fecha de Registro</th>
+            <th>Año de Nacimiento</th>
+            <th>Edad</th>
+            <th>Mayor o Menos de Edad</th>
+            <th>Nota Final</th>
+            <th>Estado</th>
+            <tbody id="cuerpo"></tbody>
+        </table>
+    </center>
+
+    <script>
+        var salida = "";
+
+        function mostrarInput() {
+            var nombre = document.getElementById("nom").value;
+            var apellido = document.getElementById("ape").value;
+            var sexo = document.querySelector('input[name="sexo"]:checked').value;
+            var fechaRegistro = document.getElementById('fecha').value;
+            var aNac = document.getElementById('aNac').value;
+            var edadPersona = calcularEdad(aNac);
+            var nf = document.getElementById('nf').value;
+
+            salida += "<tr><td>" + nombre + "</td><td>" + apellido + "</td><td>" + sexo + "</td><td>" +
+                fechaRegistro + "</td><td>" + aNac + "</td><td>" + edadPersona + "</td><td>" +
+                (edadPersona >= 18 ? "Mayor de edad" : "Menor de edad") + "</td><td>" + nf + "</td><td>" + evaluarnotafinal (nf) +"</td></tr>" ;
+
+            document.getElementById("cuerpo").innerHTML = salida;
+            limpiarCaja();
+        }
+
+        function calcularEdad(aNac) {
+            return (new Date().getFullYear() - aNac);
+        }
+        function evaluarnotafinal(nf) {/variable local/
+            if(nf>=3.0){
+            return 'aprobado'
+            }
+            else {
+            return 'reprobado'
+            }
+}
+
+        function limpiarCaja() {
+            document.getElementById("nom").value = "";
+            document.getElementById("ape").value = "";
+            document.getElementById("fecha").value = "";
+            document.getElementById("aNac").value = "";
+            document.getElementById("nf").value = "";
+            document.getElementById("nom").focus();
+        }
+    </script>
+</body>
+</html>
